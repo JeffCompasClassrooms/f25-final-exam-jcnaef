@@ -1,0 +1,34 @@
+name: Finals Orchestrator
+
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test-brute:
+    runs-on: ubuntu-latest
+    steps:
+      - name: brute tests
+        uses: actions/checkout@v4
+      - name: Install pytest
+        run: pip install pytest pytest-spec pytest-describe
+      - name: change directory
+        run: brute
+      - name: Run pytest
+        run: pytest --spec 
+  test-christmas:
+    runs-on: ubuntu-latest
+    steps:
+      - name: christmas tests
+        uses: actions/checkout@v4
+      - name: Install pytest
+        run: pip install pytest pytest-spec pytest-describe
+      - name: change directory
+        run: cd christmas
+      - name: Run pytest
+        run: pytest --spec 
+    
