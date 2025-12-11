@@ -15,9 +15,9 @@ jobs:
       - name: brute tests
         uses: actions/checkout@v4
       - name: Install pytest
-        run: pip install pytest pytest-spec pytest-describe
+        run: pip install pytest pytest-spec pytest-describe pytest-mock
       - name: change directory
-        run: brute
+        run: cd brute
       - name: Run pytest
         run: pytest --spec 
   test-christmas:
